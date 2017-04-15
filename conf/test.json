@@ -1,0 +1,7 @@
+{
+	"dev":{
+		"appname":"hello",
+		"runmode":"dev",
+		"httpport":81
+	}
+}
