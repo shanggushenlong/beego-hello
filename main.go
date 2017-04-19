@@ -31,7 +31,7 @@ func main() {
 	/*调用 config.NewConfig()构建不同格式 config 解析器*/
 	aa, err := config.NewConfig("json", "conf/test.json") //初始化文件,解析json,默认未init
 	if err == nil {
-		val := aa.String("dev::appname")
+		val := aa.String("dev::appname") //读取不同模式下配置参数的方法是“模式::配置参数名”
 		fmt.Println("val:", val)
 
 		port, _ := aa.Int("dev::httpport")
@@ -79,5 +79,6 @@ func main() {
 	   BConfig是程序在整个运行过程中都需要用的,而 AppConfig是用来解析配置项的接口,
 	   所以整个配置项的解析过程来说就是 使用 AppConfig去完成 BConfig的初始化
 	*/
+
 	beego.Run()
 }

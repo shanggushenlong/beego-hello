@@ -15,6 +15,7 @@ func (c *MainController) Get() { //重写的方式,重写Get方法
 	c.Data["Website"] = "beego.me"
 	c.Data["Email"] = "astaxie@gmail.com"
 
+	//	c.Ctx.WriteString("I love my family")
 	//	c.Ctx.WriteString("Hello")   //直接用 this.Ctx.WriteString 输出字符串,没有调用模板
 
 	/*
@@ -23,4 +24,14 @@ func (c *MainController) Get() { //重写的方式,重写Get方法
 	*/
 
 	c.TplName = "index.tpl" //最后一个就是需要去渲染的模板
+
+	c.Ctx.Input.Param(":")
+}
+
+type RestController struct {
+	beego.Controller
+}
+
+func (this *RestController) ListFood() {
+	this.Ctx.WriteString("hello world")
 }
